@@ -36,6 +36,13 @@ Neovim configuration focused on js as I'm working as a React devleoper.
 	{"neovim/nvim-lspconfig"},
   ```
 
+- numToStr/Comment.nvim
+  supports to block comments with shortcuts such as `gb`, `gc`
+  
+
 ## Keymaps
 
 I use default key maps. Those are key maps customized.
+
+- Open Diagnostic Message : `<leader>de`
+
