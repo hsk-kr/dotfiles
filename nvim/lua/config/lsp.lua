@@ -14,7 +14,7 @@ require('mason').setup({})
 require('mason-lspconfig').setup({
   -- Replace the language servers listed here
   -- with the ones you want to install
-  ensure_installed = {'tsserver', 'tailwindcss'},
+  ensure_installed = {'tsserver'},
   handlers = {
     function(server_name)
       require('lspconfig')[server_name].setup({})
@@ -29,7 +29,7 @@ cmp.setup({
     {name = 'nvim_lsp'},
   },
   mapping = {
-    ['<C-y>'] = cmp.mapping.confirm({select = false}),
+    ['<C-.>'] = cmp.mapping.confirm({select = false}),
     ['<C-e>'] = cmp.mapping.abort(),
     ['<Up>'] = cmp.mapping.select_prev_item({behavior = 'select'}),
     ['<Down>'] = cmp.mapping.select_next_item({behavior = 'select'}),
