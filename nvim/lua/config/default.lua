@@ -1,4 +1,4 @@
---vim.wo.relativenumber = true
+vim.wo.relativenumber = true
 vim.cmd.colorscheme "catppuccin"
 
 vim.o.number = true
