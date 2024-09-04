@@ -1,6 +1,6 @@
 # Neovim Configuration
 
-Neovim configuration focused on js as I'm working as a React devleoper.
+Neovim configuration focused on js.
 
 ## Plugins
 
@@ -45,4 +45,7 @@ Neovim configuration focused on js as I'm working as a React devleoper.
 I use default key maps. Those are key maps customized.
 
 - Open Diagnostic Message : `<leader>de`
-
+- Toggle NvimTree : `<leader>e`
+- Open Diffview : `<leader>dvo`
+- Close Diffview : `<leader>dvc`
+- Select : `<C-.>`
