@@ -38,7 +38,6 @@ Neovim configuration focused on js.
 
 - numToStr/Comment.nvim
   supports to block comments with shortcuts such as `gb`, `gc`
-  
 
 ## Keymaps
 
@@ -49,3 +48,5 @@ I use default key maps. Those are key maps customized.
 - Open Diffview : `<leader>dvo`
 - Close Diffview : `<leader>dvc`
 - Select : `<C-.>`
+- Exit Terminal: `<C-w>h`
+

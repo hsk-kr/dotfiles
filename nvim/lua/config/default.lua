@@ -15,3 +15,6 @@ vim.keymap.set('n', '<leader>de', function() vim.diagnostic.open_float() end, { 
 vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>dvo', ':DiffviewOpen<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>dvc', ':DiffviewClose<CR>', { noremap = true, silent = true })
+vim.keymap.set('t', '<C-w>h', "<C-\\><C-n><C-w>h",{silent = true})
+
+vim.api.nvim_set_option("clipboard", "unnamed")
