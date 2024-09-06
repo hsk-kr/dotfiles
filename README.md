@@ -49,4 +49,4 @@ I use default key maps. Those are key maps customized.
 - Close Diffview : `<leader>dvc`
 - Select : `<C-.>`
 - Exit Terminal: `<C-w>h`
-
+- Go to definition: `gd`
