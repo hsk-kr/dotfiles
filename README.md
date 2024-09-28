@@ -6,7 +6,7 @@ OS: MacOS
 
 |Tool Name|Usage|url|
 |---|---|---|
-|Neovim|Code Editor|https://neovim.io/|
+|WezTerm|Terminal Emulator|https://wezfurlong.org/wezterm/index.html|
 |Neovim|Code Editor|https://neovim.io/|
 |Snipaste|Capturing Tool|https://www.snipaste.com/index.html|
 |Aerospace|Window Tile Manager|https://github.com/nikitabobko/AeroSpace|
