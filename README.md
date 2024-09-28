@@ -1,52 +1,32 @@
-# Neovim Configuration
+# HSK Dev Setup
 
-Neovim configuration focused on js.
+OS: MacOS
 
-## Plugins
+## Tools
 
-- catppuccin/nvim
-  Theme
+|Tool Name|Usage|url|
+|---|---|---|
+|Neovim|Code Editor|https://neovim.io/|
+|Neovim|Code Editor|https://neovim.io/|
+|Snipaste|Capturing Tool|https://www.snipaste.com/index.html|
+|Aerospace|Window Tile Manager|https://github.com/nikitabobko/AeroSpace|
+|Shortcat|Manipulate Mac Without Mouse|https://shortcat.app/|
+|Homerow|Click and Scroll Mac Without Mouse|https://www.homerow.app/|
 
-- sindrets/diffview.nvim
-  Viewer for diff changes on git
+## .zshrc
 
-- mbbill/undotree
-  I haven't really used it. As far as I know, it keep tracking typing history and manage them like a try, therefore, if you make some mistakes during undoing, you don't lose all the history, you can still restore your history.
-
-- nvim-tree/nvim-tree.lua
-  Having a file browser is good, even though it's a vim...
-
-- nvim-telescope/telescope.nvim
-  Finding files by filtering and searching text/names.
-
-- akinsho/git-conflict.nvim
-  Helper when there are conflicts on git, I haven't really used it yet. 
-
-- lsp
-  needs to udpate configuration file and learn more. So far, it's not that bad to work on React projects.
-
-  ```
-	{'VonHeikemen/lsp-zero.nvim', branch = 'v4.x'},
-	{'neovim/nvim-lspconfig'},
-	{'hrsh7th/cmp-nvim-lsp'},
-	{'hrsh7th/nvim-cmp'},
-	{"williamboman/mason.nvim"},
-	{"williamboman/mason.nvim"},
-	{"williamboman/mason-lspconfig.nvim"},
-	{"neovim/nvim-lspconfig"},
-  ```
-
-- numToStr/Comment.nvim
-  supports to block comments with shortcuts such as `gb`, `gc`
-
-## Keymaps
-
-I use default key maps. Those are key maps customized.
-
-- Open Diagnostic Message : `<leader>de`
-- Toggle NvimTree : `<leader>e`
-- Open Diffview : `<leader>dvo`
-- Close Diffview : `<leader>dvc`
-- Select : `<C-.>`
-- Exit Terminal: `<C-w>h`
-- Go to definition: `gd`
+```
+# prompt custom
+parse_git_branch() {
+    git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/[\1]/p'
+}
+COLOR_DEF='%f'
+COLOR_USR='%F{243}'
+COLOR_DIR='%F{197}'
+COLOR_GIT='%F{39}'
+# About the prefixed `$`: https://tldp.org/LDP/Bash-Beginners-Guide/html/sect_03_03.html#:~:text=Words%20in%20the%20form%20%22%24',by%20the%20ANSI%2DC%20standard.
+NEWLINE=$'\n'
+# Set zsh option for prompt substitution
+setopt PROMPT_SUBST
+export PROMPT='${COLOR_USR}%n@%M ${COLOR_DIR}%d ${COLOR_GIT}$(parse_git_branch)${COLOR_DEF}${NEWLINE}%% '
+```
