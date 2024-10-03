@@ -33,3 +33,7 @@ end, { desc = "Search text in app-frontend" })
 vim.keymap.set("n", "<leader>gs", function()
   builtin.git_status {}
 end, { desc = "Git status" });
+
+vim.keymap.set("n", "<leader>gb", function()
+  builtin.git_branches {}
+end, { desc = "Git branches" });
