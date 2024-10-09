@@ -28,6 +28,14 @@ vim.keymap.set("n", "<leader>2fg", function()
   builtin.live_grep { search_dirs = { vim.fn.getcwd() .. "/app-frontend" } , prompt_title = "upscope app-frontend" }
 end, { desc = "Search text in app-frontend" })
 
+-- upscope/cobrowsing
+vim.keymap.set("n", "<leader>3ff", function()
+  builtin.find_files { search_dirs = { vim.fn.getcwd() .. "/cobrowsing" } , prompt_title = "upscope cobrowsing" }
+end, { desc = "Search files in cobrowsing" })
+vim.keymap.set("n", "<leader>3fg", function()
+  builtin.live_grep { search_dirs = { vim.fn.getcwd() .. "/cobrowsing" } , prompt_title = "upscope cobrowsing" }
+end, { desc = "Search text in cobrowsing" })
+
 
 -- add a mapping for git status
 vim.keymap.set("n", "<leader>gs", function()

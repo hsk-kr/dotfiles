@@ -58,7 +58,7 @@ require('mason-lspconfig').setup({
   -- Replace the language servers listed here
   -- with the ones you wanp to install
   -- a language server for typescript can be either tsserver or ts-ls
-  ensure_installed = {'tsserver', 'tailwindcss', "lua_ls"},
+  ensure_installed = {'ts-ls', 'tailwindcss', "lua_ls"},
   handlers = {
     function(server_name)
       require('lspconfig')[server_name].setup({})
