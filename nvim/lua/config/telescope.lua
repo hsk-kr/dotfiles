@@ -1,6 +1,11 @@
 local builtin = require('telescope.builtin')
+
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+-- live_grep_args
+vim.keymap.set("n", "<leader>fg", function()
+  require("telescope").extensions.live_grep_args.live_grep_args()
+end, { desc = "Live Grep Args" })
+-- vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
@@ -11,6 +16,7 @@ end, { desc = "Search neovim files" })
 vim.keymap.set("n", "<leader>cfg", function()
   builtin.live_grep { cwd = vim.fn.stdpath "config", prompt_title = " neovim" }
 end, { desc = "Search neovim files" })
+
 
 -- upscope/extension
 vim.keymap.set("n", "<leader>1ff", function()
