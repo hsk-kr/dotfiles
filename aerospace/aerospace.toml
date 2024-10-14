@@ -86,16 +86,17 @@ ctrl-cmd-t = 'exec-and-forget open -a WezTerm'
 ctrl-cmd-s = 'exec-and-forget open -a Slack'
 ctrl-cmd-w = 'exec-and-forget open -a Whatsapp'
 ctrl-cmd-k = 'exec-and-forget open -a KakaoTalk'
+ctrl-cmd-n = 'exec-and-forget open -a Notes'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 cmd-shift-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-alt-shift-h = 'focus left'
-alt-shift-j = 'focus down'
-alt-shift-k = 'focus up'
-alt-shift-l = 'focus right'
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
 # alt-shift-h = 'move left'
