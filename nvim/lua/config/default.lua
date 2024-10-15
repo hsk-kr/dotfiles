@@ -14,6 +14,7 @@ vim.api.nvim_set_keymap('n', '<leader>dvo', ':DiffviewOpen<CR>', { noremap = tru
 vim.api.nvim_set_keymap('n', '<leader>dvc', ':DiffviewClose<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>ng', ':Neogit<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Esc>', ':noh<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>m', ':e ~/memo<CR>', { noremap = true, silent = true })
 
 vim.api.nvim_set_option("clipboard", "unnamed")
 
