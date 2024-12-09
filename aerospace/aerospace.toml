@@ -113,9 +113,6 @@ cmd-ctrl-l = 'move right'
 # alt-f = 'fullscreen'
 ctrl-cmd-o = 'fullscreen'
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#resize
-alt-shift-minus = 'resize smart -50'
-alt-shift-equal = 'resize smart +50'
 
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
@@ -183,6 +180,7 @@ cmd-alt-l = 'move-node-to-monitor right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-shift-semicolon = 'mode service'
+alt-shift-r = 'mode resize'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -198,16 +196,35 @@ alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
+[mode.resize.binding]
+esc = ['mode main']
+h = 'resize width -50'
+j = 'resize height +50'
+k = 'resize height -50'
+l = 'resize width +50'
+b = 'balance-sizes'
 
-# Memo
+
 # [[on-window-detected]]
-#  run = "move-node-to-workspace T"
+# if.app-id = 'com.github.wez.wezterm'
+# run = "move-node-to-workspace T"
 #
-# [mode.resize.binding]
+# [[on-window-detected]]
+# if.app-id = 'company.thebrowser.Browser'
+# run = "move-node-to-workspace B"
+#
+# [[on-window-detected]]
+# if.app-id = 'com.google.Chrome'
+# run = "move-node-to-workspace B"
+#
+# [[on-window-detected]]
 # if.app-id = 'worg.mozilla.com.zen.browser'
-# h = 'resize width -50'
-# j = 'resize height +50'
-# k = 'resize height -50'
-# l = 'resize width +50'
-# b = 'balance-sizes' if.app-id = 'com.github.wez.wezterm'
-
+# run = "move-node-to-workspace B"
+#
+# [[on-window-detected]]
+# if.app-id = 'notion.id'
+# run = "move-node-to-workspace N"
+#
+# [[on-window-detected]]
+# if.app-id = 'md.obsidian'
+# run = "move-node-to-workspace N"
