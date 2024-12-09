@@ -117,6 +117,7 @@ ctrl-cmd-o = 'fullscreen'
 alt-shift-minus = 'resize smart -50'
 alt-shift-equal = 'resize smart +50'
 
+
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
@@ -196,3 +197,17 @@ alt-shift-h = ['join-with left', 'mode main']
 alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
+
+
+# Memo
+# [[on-window-detected]]
+#  run = "move-node-to-workspace T"
+#
+# [mode.resize.binding]
+# if.app-id = 'worg.mozilla.com.zen.browser'
+# h = 'resize width -50'
+# j = 'resize height +50'
+# k = 'resize height -50'
+# l = 'resize width +50'
+# b = 'balance-sizes' if.app-id = 'com.github.wez.wezterm'
+
