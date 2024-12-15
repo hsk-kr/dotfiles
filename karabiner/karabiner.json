@@ -7,31 +7,11 @@
                         "description": "Send Shift + Command + F when pressing right command",
                         "manipulators": [
                             {
-                                "from": { "key_code": "right_command" },
-                                "to": [
-                                    {
-                                        "key_code": "f",
-                                        "modifiers": ["left_command", "left_shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
                                 "from": { "key_code": "f4" },
                                 "to": [
                                     {
                                         "key_code": "j",
                                         "modifiers": ["left_command", "left_shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": { "key_code": "f9" },
-                                "to": [
-                                    {
-                                        "key_code": "left_command",
-                                        "modifiers": ["left_control"]
                                     }
                                 ],
                                 "type": "basic"
@@ -46,6 +26,10 @@
                 {
                     "from": { "key_code": "caps_lock" },
                     "to": [{ "key_code": "left_control" }]
+                },
+                {
+                    "from": { "key_code": "f9" },
+                    "to": [{ "key_code": "caps_lock" }]
                 }
             ],
             "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
