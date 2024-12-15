@@ -7,6 +7,16 @@
                         "description": "Send Shift + Command + F when pressing right command",
                         "manipulators": [
                             {
+                                "from": { "key_code": "right_command" },
+                                "to": [
+                                    {
+                                        "key_code": "f",
+                                        "modifiers": ["left_command", "left_shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
                                 "from": { "key_code": "f4" },
                                 "to": [
                                     {
