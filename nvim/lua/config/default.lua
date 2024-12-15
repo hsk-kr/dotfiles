@@ -1,6 +1,12 @@
 vim.wo.relativenumber = true
 vim.cmd.colorscheme "catppuccin"
 
+vim.filetype.add({
+  extension = {
+    graphqls = "graphql",
+  },
+})
+
 vim.o.number = true
 vim.o.ignorecase = true
 vim.o.tabstop = 2
