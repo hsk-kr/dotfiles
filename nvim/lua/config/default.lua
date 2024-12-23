@@ -67,3 +67,5 @@ vim.diagnostic.config({
 		},
 	},
 })
+
+vim.cmd.colorscheme("catppuccin")
