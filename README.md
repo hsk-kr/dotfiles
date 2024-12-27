@@ -10,7 +10,7 @@ OS: MacOS
 |Neovim|Code Editor|https://neovim.io/|
 |Snipaste|Capturing Tool|https://www.snipaste.com/index.html|
 |Aerospace|Window Tile Manager|https://github.com/nikitabobko/AeroSpace|
-|Shortcat|Manipulate Mac Without Mouse|https://shortcat.app/|
+|Karabiner Elements|Keybaoard Customizer|https://karabiner-elements.pqrs.org/|
 |Homerow|Click and Scroll Mac Without Mouse|https://www.homerow.app/|
 |zsh-vi-mode|brew install zsh-vi-mode|https://github.com/jeffreytse/zsh-vi-mode|
 |fzf|interactive filter program|https://github.com/junegunn/fzf
