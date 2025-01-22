@@ -637,7 +637,27 @@
                     "simple_modifications": [
                         {
                             "from": { "key_code": "caps_lock" },
-                            "to": [{ "key_code": "escape" }]
+                            "to": [{ "key_code": "left_control" }]
+                        },
+                        {
+                            "from": { "key_code": "f1" },
+                            "to": [{ "key_code": "vk_none" }]
+                        },
+                        {
+                            "from": { "key_code": "f2" },
+                            "to": [{ "key_code": "vk_none" }]
+                        },
+                        {
+                            "from": { "key_code": "f3" },
+                            "to": [{ "key_code": "vk_none" }]
+                        },
+                        {
+                            "from": { "key_code": "f4" },
+                            "to": [{ "key_code": "vk_none" }]
+                        },
+                        {
+                            "from": { "key_code": "f5" },
+                            "to": [{ "key_code": "vk_none" }]
                         },
                         {
                             "from": { "key_code": "left_option" },
@@ -660,24 +680,8 @@
                             "to": [{ "key_code": "caps_lock" }]
                         },
                         {
-                            "from": { "key_code": "f1" },
-                            "to": [{ "key_code": "vk_none" }]
-                        },
-                        {
-                            "from": { "key_code": "f2" },
-                            "to": [{ "key_code": "vk_none" }]
-                        },
-                        {
-                            "from": { "key_code": "f3" },
-                            "to": [{ "key_code": "vk_none" }]
-                        },
-                        {
-                            "from": { "key_code": "f4" },
-                            "to": [{ "key_code": "vk_none" }]
-                        },
-                        {
-                            "from": { "key_code": "f5" },
-                            "to": [{ "key_code": "vk_none" }]
+                            "from": { "key_code": "left_control" },
+                            "to": [{ "key_code": "escape" }]
                         }
                     ]
                 }
