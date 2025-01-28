@@ -24,7 +24,9 @@ vim.api.nvim_set_keymap("n", "<leader>dvc", ":DiffviewClose<CR>", { noremap = tr
 vim.api.nvim_set_keymap("n", "<leader>ng", ":Neogit<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Esc>", ":noh<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>m", ":e ~/memo<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", '<leader>"', ":Telescope neoclip<CR>", { noremap = true, silent = true })
 
+vim.opt.clipboard = "unnamed"
 vim.api.nvim_set_option("clipboard", "unnamed")
 
 -- key mapping
