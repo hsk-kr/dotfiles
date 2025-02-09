@@ -1,6 +1,6 @@
-# HSK Dev Setup
+# Dotfils
 
-OS: MacOS
+OS: MacOS M Chip
 
 ## Tools
 
