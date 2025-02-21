@@ -1,4 +1,4 @@
-# Dotfils
+# Dotfiles
 
 OS: MacOS M Chip
 
