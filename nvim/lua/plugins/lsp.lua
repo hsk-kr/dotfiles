@@ -153,7 +153,7 @@ return {
 					vim.keymap.set("n", "gr", builtin.lsp_references, { buffer = -1, desc = "Go to references" })
 					vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = 0, desc = "Go to declarations" })
 					vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { buffer = 0, desc = "Type definitions" })
-					vim.keymap.set("n", "H", vim.lsp.buf.hover, { buffer = 0, desc = "Lsp hover" })
+					vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0, desc = "Lsp Lookup" })
 
 					vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { buffer = 0, desc = "Lsp rename" })
 					vim.keymap.set(
