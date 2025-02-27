@@ -28,6 +28,7 @@ vim.api.nvim_set_keymap("n", '<leader>"', ":Telescope neoclip<CR>", { noremap = 
 vim.api.nvim_set_keymap("n", "<leader>fcb", ":LicovimLiveGrepWithClipboard<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>fcf", ":LicovimLiveGrepWithCurrentPath<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>upt", ":LicovimUpscopeTestCurrentFile<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>cn", ":cn<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>pt", ":Prettier<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap(
 	"n",
