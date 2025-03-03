@@ -5,6 +5,7 @@
                 "rules": [
                     {
                         "description": "Disable Hide App",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "from": {
@@ -724,6 +725,10 @@
                             "to": [{ "key_code": "vk_none" }]
                         },
                         {
+                            "from": { "key_code": "left_control" },
+                            "to": [{ "key_code": "escape" }]
+                        },
+                        {
                             "from": { "key_code": "left_option" },
                             "to": [{ "key_code": "right_control" }]
                         },
@@ -742,10 +747,6 @@
                         {
                             "from": { "key_code": "spacebar" },
                             "to": [{ "key_code": "caps_lock" }]
-                        },
-                        {
-                            "from": { "key_code": "left_control" },
-                            "to": [{ "key_code": "escape" }]
                         }
                     ]
                 }
