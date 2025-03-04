@@ -19,6 +19,29 @@ type = "action"
 main = true
 
 [[commands]]
+app = "Terminal"
+description = "Terminal"
+icon="terminal-outline"
+action = "open"
+type = "action"
+main = true
+
+[[commands]]
+app = "Slack"
+description = "Slack"
+icon="logo-slack"
+action = "open"
+type = "action"
+main = true
+
+[[commands]]
+app = "terminal.clear"
+description = "terminal.clear"
+action = "terminal.clear"
+type = "action"
+main = true
+
+[[commands]]
 app = "mutagen.resync"
 description = "resync"
 action = "mutagen.resync"
@@ -50,6 +73,20 @@ main = true
 app = "commit.check"
 description = "commit.check"
 action = "commit.check"
+type = "action"
+main = true
+
+[[commands]]
+app = "git.to.master"
+description = "git.to.master"
+action = "git.to.master"
+type = "action"
+main = true
+
+[[commands]]
+app = "extension.build"
+description = "extension.build"
+action = "extension.build"
 type = "action"
 main = true
 
