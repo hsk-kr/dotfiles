@@ -46,6 +46,20 @@ action = "upscope.build.types"
 type = "action"
 main = true
 
+[[commands]]
+app = "commit.check"
+description = "commit.check"
+action = "commit.check"
+type = "action"
+main = true
+
+[[commands]]
+app = "upscope.restart.nginx"
+description = "upscope.restart.nginx"
+action = "upscope.restart.nginx"
+type = "action"
+main = true
+
 # [[commands]]
 # app = "Google Chrome"
 # icon = "logo-chrome"
