@@ -11,7 +11,7 @@ return {
 				__inherited_from = "openai",
 				api_key_name = "GROQ_API_KEY",
 				endpoint = "https://api.groq.com/openai/v1/",
-				model = "qwen-2.5-coder-32b",
+				model = "mixtral-8x7b-32768",
 			},
 		},
 	},
