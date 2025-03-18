@@ -97,6 +97,13 @@ action = "upscope.restart.nginx"
 type = "action"
 main = true
 
+[[commands]]
+app = "aerospace.resize.mode"
+description = "aerospace.resize.mode"
+action = "aerospace.resize.mode"
+type = "action"
+main = true
+
 # [[commands]]
 # app = "Google Chrome"
 # icon = "logo-chrome"
