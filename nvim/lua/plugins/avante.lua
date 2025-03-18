@@ -11,7 +11,7 @@ return {
 				__inherited_from = "openai",
 				api_key_name = "GROQ_API_KEY",
 				endpoint = "https://api.groq.com/openai/v1/",
-				model = "mixtral-8x7b-32768",
+				model = "deepseek-r1-distill-llama-70b",
 			},
 		},
 	},
