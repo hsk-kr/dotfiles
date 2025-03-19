@@ -11,10 +11,10 @@ vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 
 -- setup
 vim.keymap.set("n", "<leader>cff", function()
-  builtin.find_files({ cwd = "~/.config", prompt_title = " config" })
+  builtin.find_files({ cwd = "~/dev-setup-manager/dotfiles", prompt_title = " dotfiles" })
 end, { desc = "Search config files" })
 vim.keymap.set("n", "<leader>cfg", function()
-  builtin.live_grep({ cwd = "~/.config", prompt_title = " config" })
+  builtin.live_grep({ cwd = "~/dev-setup-manager/dotfiles", prompt_title = " dotfiles" })
 end, { desc = "Search config files" })
 
 -- add a mapping for git status
