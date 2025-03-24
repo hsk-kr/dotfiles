@@ -16,8 +16,8 @@
   },
   {
     "key": "space f g",
-    "command": "workbench.action.findinfiles",
-    "when": "editortextfocus && vim.mode == 'normal'"
+    "command": "workbench.action.findInFiles",
+    "when": "editorTextFocus && vim.mode == 'Normal'"
   },
   {
     "key": "space e",
