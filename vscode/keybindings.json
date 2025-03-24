@@ -33,5 +33,15 @@
     "key": "space n g",
     "command": "workbench.view.scm",
     "when": "editorTextFocus && vim.mode == 'Normal'"
+  },
+  {
+    "key": "cmd+o",
+    "command": "workbench.action.nextEditor",
+    "when": "editorTextFocus && vim.mode == 'Normal'"
+  },
+  {
+    "key": "cmd+u",
+    "command": "workbench.action.previousEditor",
+    "when": "editorTextFocus && vim.mode == 'Normal'"
   }
 ]
