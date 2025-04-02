@@ -72,6 +72,29 @@
                                         "value": 1
                                     }
                                 ],
+                                "description": "Toggle Mouse Mode OFF",
+                                "from": {
+                                    "modifiers": { "optional": ["any"] },
+                                    "simultaneous": [{ "key_code": "escape" }]
+                                },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "mouse_mode",
+                                            "value": 0
+                                        }
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "mouse_mode",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "1",
                                     "modifiers": { "optional": ["any"] }
