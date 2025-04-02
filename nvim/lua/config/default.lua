@@ -13,7 +13,6 @@ vim.o.shiftwidth = 2
 vim.o.smartindent = true
 vim.o.expandtab = true
 vim.o.signcolumn = "yes"
-vim.o.ignorecase = false
 
 -- plugins
 
