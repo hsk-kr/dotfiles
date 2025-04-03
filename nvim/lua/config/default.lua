@@ -80,3 +80,9 @@ vim.diagnostic.config({
 		},
 	},
 })
+
+-- disable close window shortcuts, accidently pressing those button is so annoying
+vim.keymap.set("n", "<C-w>c", "<Nop>", { noremap = true })
+vim.keymap.set("n", "<C-w>o", "<Nop>", { noremap = true })
+vim.keymap.set("n", "<C-w>z", "<Nop>", { noremap = true })
+vim.keymap.set("n", "<C-w>q", "<Nop>", { noremap = true })
