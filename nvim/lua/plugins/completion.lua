@@ -4,7 +4,6 @@ return {
 	version = "*",
 	opts = {
 		keymap = {
-			["<Tab>"] = { "select_and_accept", "fallback" },
 			["<C-y>"] = { "select_and_accept" },
 
 			["<C-space>"] = { "show", "fallback" },
