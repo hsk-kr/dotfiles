@@ -89,3 +89,9 @@ vim.keymap.set("n", "<C-w>c", "<Nop>", { noremap = true })
 vim.keymap.set("n", "<C-w>o", "<Nop>", { noremap = true })
 vim.keymap.set("n", "<C-w>z", "<Nop>", { noremap = true })
 vim.keymap.set("n", "<C-w>q", "<Nop>", { noremap = true })
+
+-- reload
+-- TODO: not working need to fix
+-- vim.keymap.set("n", "<leader>rr", function()
+-- 	vim.cmd("source $MYVIMRC")
+-- end, { desc = "Reload Neovim config" })
