@@ -13,3 +13,5 @@ alias vi=nvim
 alias vim=nvim
 
 source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
+export DOCKERMACHINE_IP=$(yq '.docker_machine.ip' $UPSCOPE_DIR/dev.toml)
