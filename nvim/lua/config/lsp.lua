@@ -48,6 +48,8 @@ local opts = {
 	},
 }
 
+vim.api.nvim_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { noremap = true, silent = true })
+
 require("mason").setup(opts)
 
 vim.api.nvim_create_user_command("MasonInstallAll", function()
