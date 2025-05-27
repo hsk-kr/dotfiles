@@ -41,8 +41,7 @@ vim.api.nvim_set_keymap("n", "<leader>upr", ":LicovimTestRunnerRun<CR>", { norem
 vim.api.nvim_set_keymap("n", "<leader>upd", ":LicovimTestRunnerRunDebug<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>upt", ":LicovimTestRunnerToggle<CR>", { noremap = true, silent = true })
 
-vim.opt.clipboard = "unnamed"
-vim.api.nvim_set_option("clipboard", "unnamed")
+vim.opt.clipboard = "unnamedplus"
 
 -- key mapping
 local set = vim.keymap.set
