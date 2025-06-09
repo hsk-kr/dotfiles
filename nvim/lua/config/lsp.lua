@@ -30,7 +30,7 @@ local opts = {
 		"typescript-language-server",
 		"prettier",
 		"prettierd",
-		"nailwindcss-language-server",
+		"tailwindcss-language-server",
 		"fixjson",
 
 		-- yaml
@@ -57,9 +57,6 @@ vim.api.nvim_create_user_command("MasonInstallAll", function()
 end, {})
 
 require("mason-lspconfig").setup({
-	-- Replace the language servers listed here
-	-- with the ones you wanp to install
-	ensure_installed = { "typescript-language-server", "tailwindcss-language-server" },
 	handlers = {
 		function(server_name)
 			require("lspconfig")[server_name].setup({})
