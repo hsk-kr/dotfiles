@@ -52,12 +52,6 @@ local set = vim.keymap.set
 set("n", "<leader>x", "<cmd>.lua<cr>", { desc = "Execute the current line" })
 set("n", "<leader><leader>x", "<cmd>source %<cr>", { desc = "Execute the current file" })
 
-set("n", "[d", function()
-	vim.diagnostic.goto_prev()
-end, {})
-set("n", "]d", function()
-	vim.diagnostic.goto_next()
-end, {})
 set("n", "<leader>de", function()
 	vim.diagnostic.open_float()
 end, { noremap = true, silent = true })
