@@ -23,10 +23,13 @@ vim.api.nvim_set_keymap("n", "<leader>dvo", ":DiffviewOpen<CR>", { noremap = tru
 vim.api.nvim_set_keymap("n", "<leader>dvc", ":DiffviewClose<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>ng", ":Neogit<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<Esc>", ":noh<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>m", ":e ~/memo<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>mm", ":e ~/memo<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>mr", ":e ~/rest.http<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", '<leader>"', ":Telescope neoclip<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>cn", ":cn<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>pt", ":Prettier<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>rr", ":Rest run<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>rl", ":Rest last<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap(
 	"n",
 	"<leader>cp",
@@ -95,3 +98,4 @@ vim.keymap.set("n", "<C-w>q", "<Nop>", { noremap = true })
 -- vim.keymap.set("n", "<leader>rr", function()
 -- 	vim.cmd("source $MYVIMRC")
 -- end, { desc = "Reload Neovim config" })
+--
