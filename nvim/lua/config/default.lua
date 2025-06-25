@@ -25,7 +25,7 @@ vim.api.nvim_set_keymap("n", "<leader>o", ":Oil<CR>", { noremap = true, silent =
 -- Diffview
 vim.api.nvim_set_keymap("n", "<leader>dvo", ":DiffviewOpen<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>dvc", ":DiffviewClose<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>dvm", "DiffviewOpen origin/master", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>dvm", ":DiffviewOpen origin/master<CR>", { noremap = true, silent = true })
 
 -- Neogit
 vim.api.nvim_set_keymap("n", "<leader>ng", ":Neogit<CR>", { noremap = true, silent = true })
