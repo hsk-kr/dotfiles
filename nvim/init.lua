@@ -1,5 +1,7 @@
 require("config.lazy")
 require("config.default")
+require("config.custom_script")
+require("config.custom_keymap")
 require("config.lsp")
 require("config.tree")
 require("config.comment")
