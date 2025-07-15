@@ -36,7 +36,7 @@ vim.api.nvim_set_keymap(
 	":lua vim.fn.setreg('+', vim.fn.fnamemodify(vim.fn.expand('%:p'),':.'))<CR>",
 	{ noremap = true, silent = true }
 )
-vim.keymap.set("t", "<C-w>h", "<C-\\><C-n><C-w>h", { silent = true }) -- to exit from the terminal
+vim.keymap.set("t", "<C-q>", "<C-\\><C-n>", { silent = true }) -- to exit from the terminal
 
 vim.keymap.set("n", "<leader>x", "<cmd>.lua<cr>", { desc = "Execute the current line" })
 vim.keymap.set("n", "<leader><leader>x", "<cmd>source %<cr>", { desc = "Execute the current file" })
