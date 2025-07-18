@@ -12,7 +12,7 @@
                     "mandatory": ["right_option"],
                     "optional": ["any"]
                   },
-                  "simultaneous": [{ "key_code": "b" }]
+                  "simultaneous": [{ "key_code": "a" }]
                 },
                 "to": [
                   {
