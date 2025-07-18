@@ -4,6 +4,27 @@
       "complex_modifications": {
         "rules": [
           {
+            "description": "Tmux prefix key moditifcation",
+            "manipulators": [
+              {
+                "from": {
+                  "modifiers": {
+                    "mandatory": ["right_option"],
+                    "optional": ["any"]
+                  },
+                  "simultaneous": [{ "key_code": "b" }]
+                },
+                "to": [
+                  {
+                    "key_code": "b",
+                    "modifiers": ["left_control"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
             "description": "Mouse Mode (Caps Lock + M)",
             "manipulators": [
               {
@@ -1771,4 +1792,3 @@
     }
   ]
 }
-
