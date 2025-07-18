@@ -717,7 +717,7 @@
                     "mandatory": ["right_option"],
                     "optional": ["any"]
                   },
-                  "simultaneous": [{ "key_code": "w" }]
+                  "simultaneous": [{ "key_code": "s" }]
                 },
                 "to": [
                   {
@@ -743,7 +743,7 @@
                     "mandatory": ["right_option"],
                     "optional": ["any"]
                   },
-                  "simultaneous": [{ "key_code": "w" }]
+                  "simultaneous": [{ "key_code": "s" }]
                 },
                 "to": [
                   {
