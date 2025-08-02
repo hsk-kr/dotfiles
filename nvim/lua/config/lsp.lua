@@ -49,6 +49,7 @@ local opts = {
 }
 
 vim.api.nvim_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "gk", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
 
 require("mason").setup(opts)
 
