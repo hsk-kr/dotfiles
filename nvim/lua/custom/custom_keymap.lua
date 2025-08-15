@@ -24,6 +24,9 @@ vim.api.nvim_set_keymap("n", "<leader>pt", ":Prettier<CR>", { noremap = true, si
 -- neoclip
 vim.api.nvim_set_keymap("n", '<leader>"', ":Telescope neoclip<CR>", { noremap = true, silent = true })
 
+-- lsp
+vim.api.nvim_set_keymap("n", "<leader>fs", ":Telescope lsp_document_symbols<CR>", { noremap = true, silent = true })
+
 -- Custom
 vim.api.nvim_set_keymap("n", "<Esc>", ":noh<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>mm", ":e ~/memo<CR>", { noremap = true, silent = true })
@@ -57,3 +60,5 @@ vim.keymap.set("n", "<C-w>c", "<Nop>", { noremap = true })
 vim.keymap.set("n", "<C-w>o", "<Nop>", { noremap = true })
 vim.keymap.set("n", "<C-w>z", "<Nop>", { noremap = true })
 vim.keymap.set("n", "<C-w>q", "<Nop>", { noremap = true })
+
+vim.api.nvim_set_keymap("n", "<leader>fd", ":filetype detect<CR>", { noremap = true, silent = true })
