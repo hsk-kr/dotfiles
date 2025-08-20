@@ -1,114 +1,73 @@
--------------------------------------
--- Saving work files on exit
--------------------------------------
+-- Config
+local data_dir_path = vim.fn.stdpath("data") .. "/lico"
+local config_file_path = data_dir_path .. "/config"
 
--- Auto save session on exit
-vim.api.nvim_create_autocmd("VimLeavePre", {
-	callback = function()
-		if _G.saving_mode == true then
-			vim.cmd("mksession! ~/vim_saving_mode_session.vim")
-			-- TODO: not working, this command should be run manually, later need to fix
-			-- vim.cmd("bufdo filetype detect")
-		end
-	end,
-})
+local function mkdir_data_dir_path()
+	if vim.fn.isdirectory(data_dir_path) == 0 then
+		vim.fn.mkdir(data_dir_path, "p")
+	end
+end
+local function get_config()
+	mkdir_data_dir_path()
 
--- Auto load session on start
-vim.api.nvim_create_autocmd("VimEnter", {
-	callback = function()
-		local session_file = vim.fn.expand("~/vim_saving_mode_session.vim")
-		if vim.fn.filereadable(session_file) == 1 then
-			_G.saving_mode = false
-			vim.cmd("source " .. session_file)
-			vim.fn.delete(session_file)
-		end
-	end,
-})
+	local fd = vim.uv.fs_open(config_file_path, "r", 438) -- 0666
+	if not fd then
+		return {}
+	end
+	local stat = vim.uv.fs_fstat(fd)
+	local s_data = vim.uv.fs_read(fd, stat.size, 0)
+	vim.uv.fs_close(fd)
 
-vim.api.nvim_create_user_command("QuitVimWithSavingMode", function()
-	_G.saving_mode = true
-	vim.cmd("qa!")
-end, {})
+	if s_data == nil or s_data == "" then
+		return {}
+	end
 
-vim.api.nvim_set_keymap("n", "<leader>sq", ":QuitVimWithSavingMode<CR>", { noremap = true, silent = true })
+	local data = vim.json.decode(s_data)
+	return data
+end
 
+local function set_config(key, value)
+	mkdir_data_dir_path()
+
+	local tmp_path = config_file_path .. "_tmp"
+	local fd = vim.uv.fs_open(tmp_path, "w", 420) -- 0644
+	if not fd then
+		return false
+	end
+
+	local current_config = get_config()
+	current_config[key] = value
+
+	local s_config = vim.json.encode(current_config)
+
+	vim.uv.fs_write(fd, s_config, 0)
+	vim.uv.fs_close(fd)
+	vim.uv.fs_rename(tmp_path, config_file_path)
+	return true
+end
+
+-- Theme
 --
-local function open_scratch_panel(height)
-	height = height or 15
-	vim.cmd(("botright %dsplit"):format(height))
-	local win = vim.api.nvim_get_current_win()
-	local buf = vim.api.nvim_create_buf(false, true) -- [listed=false, scratch=true]
-	vim.api.nvim_win_set_buf(win, buf)
-
-	vim.bo[buf].buftype = "nofile"
-	vim.bo[buf].bufhidden = "wipe"
-	vim.bo[buf].swapfile = false
-	vim.bo[buf].filetype = "log"
-	vim.bo[buf].modifiable = true
-
-	-- Quick close
-	vim.keymap.set("n", "q", "<cmd>close<CR>", { buffer = buf, silent = true })
-	return buf, win
+local function apply_scheme(scheme)
+	local config = get_config()
+	set_config("scheme", scheme)
+	vim.cmd("colorscheme " .. scheme)
 end
-
-local function append(buf, lines)
-	if not lines or #lines == 0 then
-		return
-	end
-	-- Remove trailing empty item some shells add
-	if #lines > 0 and lines[#lines] == "" then
-		table.remove(lines)
-	end
-	if #lines == 0 then
-		return
-	end
-	local last = vim.api.nvim_buf_line_count(buf)
-	vim.api.nvim_buf_set_lines(buf, last, last, false, lines)
+local function init_scheme()
+	local config = get_config()
+	local scheme = config.scheme or "default"
+	apply_scheme(scheme)
 end
+local function pick_scheme()
+	local colors = vim.fn.getcompletion("", "color"), "\n"
 
-local function run_to_panel()
-	vim.ui.input({ prompt = "Enter shell command: " }, function(cmd)
-		if not cmd or cmd == "" then
-			vim.notify("No command entered.", vim.log.levels.WARN)
-			return
-		end
-
-		local buf = select(1, open_scratch_panel(30))
-		local header = {
-			("# Command: %s"):format(cmd),
-			("# Time   : %s"):format(os.date("%Y-%m-%d %H:%M:%S")),
-			"# Output -------------------------------------",
-			"",
-		}
-		vim.api.nvim_buf_set_lines(buf, 0, -1, false, header)
-
-		-- Stream both stdout and stderr
-		local jid = vim.fn.jobstart({ "sh", "-c", cmd .. " 2>&1" }, {
-			stdout_buffered = false,
-			on_stdout = function(_, data, _)
-				append(buf, data)
-			end,
-			on_stderr = function(_, data, _)
-				append(buf, data)
-			end,
-			on_exit = function(_, code, _)
-				append(buf, {
-					"",
-					"# -------------------------------------------",
-					("# Exit code: %d"):format(code),
-					"# Press q to close this panel.",
-				})
-				-- Scroll to bottom
-				pcall(vim.api.nvim_win_set_cursor, 0, { vim.api.nvim_buf_line_count(buf), 0 })
-			end,
-		})
-
-		if jid <= 0 then
-			append(buf, { "", "# Failed to start job." })
+	vim.ui.select(colors, {
+		prompt = "Select Scheme:",
+	}, function(choice)
+		if choice and choice ~= "" then
+			apply_scheme(choice)
 		end
 	end)
 end
-
-vim.api.nvim_create_user_command("RunToPanel", function()
-	run_to_panel()
-end, {})
+init_scheme()
+vim.api.nvim_create_user_command("Scheme", pick_scheme, {})
