@@ -71,3 +71,29 @@ local function pick_scheme()
 end
 init_scheme()
 vim.api.nvim_create_user_command("Scheme", pick_scheme, {})
+
+-- Telescope Search hidden files
+
+vim.keymap.set("n", "<leader>fa", function()
+	local tb = require("telescope.builtin")
+
+	tb.find_files({
+		hidden = true,
+		no_ignore = true,
+		no_ignore_parent = true,
+	})
+end, { desc = "Find Files (Include Hidden/Ignore Files)" })
+
+vim.keymap.set("n", "<leader>fn", function()
+	local tb = require("telescope.builtin")
+
+	tb.find_files({
+		hidden = true,
+	})
+end, { desc = "Find Files (Include Hidden Files)" })
+
+-- bring previous copy to current copy
+vim.keymap.set("n", "yp", function()
+	local last_yank = vim.fn.getreg("0")
+	vim.fn.setreg("+", last_yank)
+end, { desc = "Copy previous copied one" })

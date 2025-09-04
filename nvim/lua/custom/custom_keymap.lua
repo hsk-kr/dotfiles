@@ -62,23 +62,3 @@ vim.keymap.set("n", "<C-w>z", "<Nop>", { noremap = true })
 vim.keymap.set("n", "<C-w>q", "<Nop>", { noremap = true })
 
 vim.api.nvim_set_keymap("n", "<leader>fd", ":filetype detect<CR>", { noremap = true, silent = true })
-
--- Telescope Search hidden files
-
-vim.keymap.set("n", "<leader>fa", function()
-	local tb = require("telescope.builtin")
-
-	tb.find_files({
-		hidden = true,
-		no_ignore = true,
-		no_ignore_parent = true,
-	})
-end, { desc = "Find Files (Include Hidden/Ignore Files)" })
-
-vim.keymap.set("n", "<leader>fn", function()
-	local tb = require("telescope.builtin")
-
-	tb.find_files({
-		hidden = true,
-	})
-end, { desc = "Find Files (Include Hidden Files)" })
