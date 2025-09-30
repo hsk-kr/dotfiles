@@ -1,9 +1,9 @@
 require("config.lazy")
-require("config.lsp")
 require("config.tree")
 require("config.comment")
 require("config.telescope")
 require("config.git")
+require("config.lsp")
 
 require("custom.autoformat")
 require("custom.custom_script")

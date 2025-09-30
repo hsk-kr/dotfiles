@@ -1,100 +1,24 @@
-local lsp_zero = require("lsp-zero")
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true, silent = true })
+vim.keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true, silent = true })
+vim.keymap.set("n", "gk", vim.lsp.buf.hover, { noremap = true, silent = true })
 
-local lsp_attach = function(client, bufnr)
-  -- this is where you enable features that only work
-  -- if there is a language server active in the file
+vim.opt.winborder = "rounded"
+
+local lsp_languages = { "typescript", "lua", "go" }
+
+for _, lsp_language in pairs(lsp_languages) do
+	vim.lsp.enable(lsp_language)
 end
 
-lsp_zero.extend_lspconfig({
-  sign_text = true,
-  lsp_attach = lsp_attach,
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(ev)
+		local client = vim.lsp.get_client_by_id(ev.data.client_id)
+		if client:supports_method("textDocument/completion") then
+			vim.opt.completeopt = { "menu", "menuone", "noinsert", "fuzzy", "popup" }
+			vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+			vim.keymap.set("i", "<C-Space>", function()
+				vim.lsp.completion.get()
+			end)
+		end
+	end,
 })
-
-local opts = {
-  ui = {
-    icons = {
-      package_installed = "✓",
-      package_pending = "➜",
-      package_uninstalled = "✗",
-    },
-  },
-  max_concurrent_installers = 10,
-  ensure_installed = {
-    -- Lua stuff
-    "lua-language-server",
-    "stylua",
-
-    -- Web dev stuff
-    "css-lsp",
-    "html-lsp",
-    "typescript-language-server",
-    "prettier",
-    "prettierd",
-    "tailwindcss-language-server",
-    "fixjson",
-
-    -- yaml
-    "yaml-language-server",
-
-    -- python stuff
-    "pyright",
-    "python-lsp-server",
-    "black",
-
-    -- go stuff
-    "gopls",
-    "goimports",
-    "delve",
-  },
-}
-
-vim.api.nvim_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "gk", "<cmd>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
-
-require("mason").setup(opts)
-
-vim.api.nvim_create_user_command("MasonInstallAll", function()
-  vim.cmd("MasonInstall " .. table.concat(opts.ensure_installed, " "))
-end, {})
-
-require("mason-lspconfig").setup({
-  handlers = {
-    function(server_name)
-      require("lspconfig")[server_name].setup({})
-    end,
-  },
-})
-
-local cmp = require("cmp")
-
-cmp.setup({
-  sources = {
-    { name = "nvim_lsp" },
-  },
-  mapping = {
-    ["<C-y>"] = cmp.mapping.confirm({
-      behavior = cmp.ConfirmBehavior.Insert,
-      select = true,
-    }),
-    -- ['<C-.>'] = cmp.mapping.confirm({select = false}),
-    ["<C-e>"] = cmp.mapping.abort(),
-    -- ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = "select" }),
-    -- ["<C-t>"] = cmp.mapping.select_next_item({ behavior = "select" }),
-    ["<C-p>"] = cmp.mapping(function()
-      if cmp.visible() then
-        cmp.select_prev_item()
-      else
-        cmp.complete()
-      end
-    end),
-    ["<C-n>"] = cmp.mapping(function()
-      if cmp.visible() then
-        cmp.select_next_item()
-      else
-        cmp.complete()
-      end
-    end),
-  }
-})
-
-vim.keymap.set("n", "gd", vim.lsp.buf.definition)
