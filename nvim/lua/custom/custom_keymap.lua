@@ -18,9 +18,6 @@ vim.api.nvim_set_keymap("n", "<leader>ng", ":Neogit<CR>", { noremap = true, sile
 vim.api.nvim_set_keymap("n", "<leader>rr", ":Rest run<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>rl", ":Rest last<CR>", { noremap = true, silent = true })
 
--- Prettier
-vim.api.nvim_set_keymap("n", "<leader>pt", ":Prettier<CR>", { noremap = true, silent = true })
-
 -- neoclip
 vim.api.nvim_set_keymap("n", '<leader>"', ":Telescope neoclip<CR>", { noremap = true, silent = true })
 
@@ -60,5 +57,3 @@ vim.keymap.set("n", "<C-w>c", "<Nop>", { noremap = true })
 vim.keymap.set("n", "<C-w>o", "<Nop>", { noremap = true })
 vim.keymap.set("n", "<C-w>z", "<Nop>", { noremap = true })
 vim.keymap.set("n", "<C-w>q", "<Nop>", { noremap = true })
-
-vim.api.nvim_set_keymap("n", "<leader>fd", ":filetype detect<CR>", { noremap = true, silent = true })
