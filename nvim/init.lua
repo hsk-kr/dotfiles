@@ -1,6 +1,5 @@
 require("config.lazy")
 require("config.tree")
-require("config.comment")
 require("config.telescope")
 require("config.git")
 require("config.lsp")
