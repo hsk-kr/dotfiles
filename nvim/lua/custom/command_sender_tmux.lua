@@ -12,6 +12,7 @@ local function get_visual_text()
   local end_pos = vim.fn.getpos(".")
   local start_row, start_col = start_pos[2], start_pos[3]
   local end_row, end_col = end_pos[2], end_pos[3]
+  local mode = vim.fn.visualmode(1)
 
   if start_row > end_row or (start_row == end_row and start_col > end_col) then
     start_row, end_row = end_row, start_row
@@ -23,7 +24,6 @@ local function get_visual_text()
     return ""
   end
 
-  local mode = vim.fn.visualmode()
   if mode ~= "V" then
     lines[1] = string.sub(lines[1], start_col)
     lines[#lines] = string.sub(lines[#lines], 1, end_col)
