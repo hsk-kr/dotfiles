@@ -10,6 +10,7 @@ vim.api.nvim_set_keymap("n", "<leader>o", ":Oil<CR>", { noremap = true, silent =
 vim.api.nvim_set_keymap("n", "<leader>dvo", ":DiffviewOpen<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>dvc", ":DiffviewClose<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>dvm", ":DiffviewOpen origin/master<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>dvn", ":DiffviewOpen origin/main<CR>", { noremap = true, silent = true })
 
 -- Neogit
 vim.api.nvim_set_keymap("n", "<leader>ng", ":Neogit<CR>", { noremap = true, silent = true })
@@ -31,10 +32,10 @@ vim.api.nvim_set_keymap("n", "<leader>mr", ":e ~/rest.http<CR>", { noremap = tru
 vim.api.nvim_set_keymap("n", "<leader>cp", ":cprev<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<leader>cn", ":cn<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap(
-	"n",
-	"<leader>ca",
-	":lua vim.fn.setreg('+', vim.fn.fnamemodify(vim.fn.expand('%:p'),':.'))<CR>",
-	{ noremap = true, silent = true }
+  "n",
+  "<leader>ca",
+  ":lua vim.fn.setreg('+', vim.fn.fnamemodify(vim.fn.expand('%:p'),':.'))<CR>",
+  { noremap = true, silent = true }
 )
 vim.keymap.set("t", "<C-q>", "<C-\\><C-n>", { silent = true }) -- to exit from the terminal
 
@@ -42,7 +43,7 @@ vim.keymap.set("n", "<leader>x", "<cmd>.lua<cr>", { desc = "Execute the current 
 vim.keymap.set("n", "<leader><leader>x", "<cmd>source %<cr>", { desc = "Execute the current file" })
 
 vim.keymap.set("n", "<leader>de", function()
-	vim.diagnostic.open_float()
+  vim.diagnostic.open_float()
 end, { noremap = true, silent = true })
 
 -- upscope plugin commands
