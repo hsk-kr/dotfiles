@@ -9,3 +9,4 @@ vim.o.expandtab = true
 vim.o.signcolumn = "yes"
 
 vim.opt.clipboard = "unnamedplus"
+vim.cmd("packadd cfilter")
