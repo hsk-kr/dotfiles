@@ -89,10 +89,30 @@ local function open_command_buffer()
   set_buffer_keymaps(bufnr)
 end
 
+-- Autocommand to ensure keymaps are set whenever the command buffer is entered
+local augroup = vim.api.nvim_create_augroup("CommandSenderTmux", { clear = true })
+vim.api.nvim_create_autocmd("BufEnter", {
+  group = augroup,
+  pattern = vim.fn.expand("~/.command_sender_tmux"),
+  callback = function(args)
+    set_buffer_keymaps(args.buf)
+  end,
+})
+
 vim.api.nvim_create_user_command("SendCommandToTmuxPanel", function()
   open_command_buffer()
 end, {})
 
 vim.keymap.set("n", "<leader>st", "<cmd>SendCommandToTmuxPanel<cr>", { silent = true })
+
+-- Global keybindings to send text from any buffer
+for i = 0, 5 do
+  vim.keymap.set("n", "<leader>cs" .. i, function()
+    send_from_mode(i, false)
+  end, { silent = true, desc = "Send buffer to tmux pane " .. i })
+  vim.keymap.set("x", "<leader>cs" .. i, function()
+    send_from_mode(i, true)
+  end, { silent = true, desc = "Send selection to tmux pane " .. i })
+end
 
 return M
