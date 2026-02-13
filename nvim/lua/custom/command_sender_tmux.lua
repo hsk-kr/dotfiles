@@ -36,7 +36,7 @@ end
 local function send_text_to_tmux(pane_index, text)
   local target = string.format(":.%d", pane_index)
   vim.fn.system({ "tmux", "load-buffer", "-" }, text)
-  vim.fn.system({ "tmux", "paste-buffer", "-t", target, "-p" })
+  vim.fn.system({ "tmux", "paste-buffer", "-t", target })
   vim.fn.system({ "tmux", "send-keys", "-t", target, "C-m" })
 end
 
