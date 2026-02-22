@@ -1035,6 +1035,22 @@
             ]
           },
           {
+            "description": "Disable Quit App (Cmd+Q)",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "q",
+                  "modifiers": {
+                    "mandatory": ["left_command"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [],
+                "type": "basic"
+              }
+            ]
+          },
+          {
             "description": "Function Keys (My HyperKey + Number Keys)",
             "manipulators": [
               {
