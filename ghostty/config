@@ -1,0 +1,7 @@
+theme = catppuccin-mocha
+
+font-family = UbuntuSansMono Nerd Font
+font-size = 11
+
+window-decoration = false
+macos-option-as-alt = left
