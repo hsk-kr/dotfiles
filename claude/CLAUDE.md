@@ -29,10 +29,12 @@ Exception: If the user says "just do it", "go for it", or "don't ask", skip ques
 
 ## Workflow
 
+- **Use agent teams and local agents aggressively.** When a task can be split into independent subtasks, launch multiple agents in parallel to maximize speed. Good candidates: creating independent files, running tests while coding, researching multiple areas, generating boilerplate, fixing data across files. Always prefer parallel agents over sequential work.
 - **Ask about parallel sessions.** The user runs multiple Claude sessions simultaneously. Before starting work, ask if any part is being handled elsewhere.
 - **Don't generate large content/data.** The user generates datasets (word lists, translations, etc.) in separate dedicated sessions. Focus on code infrastructure. Ask before generating content.
 - **Research when stuck.** If you can't solve something after 2-3 attempts, research online/docs. Don't keep tweaking the same approach blindly.
 - **Automate everything.** Never leave manual steps. Create scripts, startup hooks, or triggers. The user doesn't do anything manually.
+- **Always handle loading states.** Never show default/zero values while APIs are loading. Use skeleton placeholders, shimmer animations, or "Loading..." text. Pages must not flash incorrect data before real data arrives.
 - **UI first, backend later.** The user prefers to build frontend with mock data first, then wire up the backend. Follow this pattern unless told otherwise.
 
 ## Commits & Git
