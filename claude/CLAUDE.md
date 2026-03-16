@@ -30,7 +30,7 @@ Exception: If the user says "just do it", "go for it", or "don't ask", skip ques
 ## Workflow
 
 - **Use TeamCreate and parallel agents aggressively.** For any task with 2+ independent subtasks, use `TeamCreate` to coordinate parallel agents. For simpler parallelism, launch multiple `Agent` tool calls in a single message. Good candidates: creating independent files, running tests while coding, researching multiple areas, generating boilerplate, fixing data across files. Always prefer parallel execution over sequential work. Never do sequentially what can be done in parallel.
-- **Cross-check with specialist agents.** After any code-writing agent finishes, ALWAYS launch `test-engineer` and `security-auditor` in parallel to verify the work. Developer agents write code; specialist agents catch their mistakes. This is non-negotiable for anything beyond trivial edits.
+- **Cross-check with specialist agents.** After any code-writing agent finishes, launch `test-engineer` and `security-auditor` in parallel to verify the work. Apply this for changes touching 3+ files or 20+ lines. For smaller edits, use your judgment.
 - **Use the right specialist for the job.** Don't use a general developer agent when a specialist exists: `database-architect` for schema/queries, `devops-engineer` for CI/CD/Docker, `debugging-detective` for bug investigation, `refactoring-surgeon` for restructuring, `performance-optimizer` for profiling/tuning, `dependency-manager` for package management, `git-strategist` for complex git operations, `documentation-writer` for docs.
 - **Team patterns for common workflows** (see `docs/when-to-invoke-agents.md` for full details):
   - **Every feature**: Developer → (test-engineer + security-auditor) in parallel
@@ -40,12 +40,10 @@ Exception: If the user says "just do it", "go for it", or "don't ask", skip ques
 - **Ask about parallel sessions.** The user runs multiple Claude sessions simultaneously. Before starting work, ask if any part is being handled elsewhere.
 - **Don't generate large content/data.** The user generates datasets (word lists, translations, etc.) in separate dedicated sessions. Focus on code infrastructure. Ask before generating content.
 - **Research when stuck.** If you can't solve something after 2-3 attempts, research online/docs. Don't keep tweaking the same approach blindly.
-- **Automate everything.** Never leave manual steps. Create scripts, startup hooks, or triggers. The user doesn't do anything manually.
 - **Always handle loading states.** Never show default/zero values while APIs are loading. Use skeleton placeholders, shimmer animations, or "Loading..." text. Pages must not flash incorrect data before real data arrives.
 - **UI first, backend later.** The user prefers to build frontend with mock data first, then wire up the backend. Follow this pattern unless told otherwise.
 
 ## Commits & Git
 
 - Review code before every commit (the user expects this as a ritual).
-- Commit frequently as checkpoints — roughly every 3-5 features or fixes.
 - Push when asked, not automatically.

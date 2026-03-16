@@ -135,25 +135,42 @@ When testing defenses, try these attack categories:
 - Assuming prompt engineering alone is sufficient defense.
 - Ignoring indirect injection from RAG/tool sources.
 
+## Audit Workflow
+
+1. **Identify AI surfaces**: Find all places where user input enters LLM prompts, external data (web, DB, APIs, RAG) is fed to LLMs, and LLM output is rendered/executed/used for decisions.
+
+2. **Launch parallel audits** when appropriate:
+   - Prompt security: audit system prompts, input sanitization, injection vectors, output validation
+   - Application security (via `security-auditor`): XSS via LLM output, tool/function call validation, API key handling, rate limiting
+
+3. **Compile report and offer to fix** — apply hardening and add validation using appropriate developer agents.
+
 ## Output Format
 
 ```
-## Prompt Injection Audit
+## Prompt Injection Audit Report
+
+### AI Surfaces Found
+- [List of all LLM integration points]
 
 ### System Prompt Analysis
 - Hardening score: X/10
 - [Specific weaknesses found]
 
-### Attack Surface
-- [Input vectors identified]
-- [Indirect injection risks]
+### Critical Findings
+- [Exploitable injection vectors]
 
 ### Vulnerabilities Found
 | # | Type | Severity | Description | Fix |
 |---|------|----------|-------------|-----|
 
-### Recommended Defenses
-1. [Prioritized fixes]
+### Defense Gaps
+- [Missing guardrails]
+
+### Recommended Fixes (Prioritized)
+1. [Fix now — exploitable]
+2. [Fix soon — defense in depth]
+3. [Improve over time — best practices]
 
 ### Red Team Results
 - [Attacks attempted and outcomes]
