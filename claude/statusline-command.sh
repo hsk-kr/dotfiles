@@ -16,6 +16,7 @@ lines_rm=$(echo "$input" | jq -r '.cost.total_lines_removed // 0')
 cwd=$(echo "$input" | jq -r '.workspace.current_dir // .cwd // "~"')
 version=$(echo "$input" | jq -r '.version // "?"')
 exceeds_200k=$(echo "$input" | jq -r '.exceeds_200k // false')
+effort=$(jq -r '.effortLevel // "default"' ~/.claude/settings.json 2>/dev/null)
 
 # Git branch (cached to avoid slow calls)
 cache_file="/tmp/cc-statusline-git-$$"
@@ -96,9 +97,16 @@ else
   COST_C="$G"
 fi
 
-# Line 1: model + context bar
-printf "${DIM}[${MG}%s${DIM}|${G}%s ${DIM}ctx${BAR_COLOR}[%s] ${BAR_COLOR}%s%%${RST}\n" \
-  "$model" "$ctx_size_fmt" "$bar" "$ctx_used"
+# Effort color
+case "$effort" in
+  high) EFFORT_C="$R"; effort_tag="HIGH" ;;
+  low)  EFFORT_C="$DG"; effort_tag="LOW" ;;
+  *)    EFFORT_C="$MG"; effort_tag="MID" ;;
+esac
+
+# Line 1: model + effort + context bar
+printf "${DIM}[${MG}%s${DIM}|${G}%s${DIM}] ${EFFORT_C}%s ${DIM}ctx${BAR_COLOR}[%s] ${BAR_COLOR}%s%%${RST}\n" \
+  "$model" "$ctx_size_fmt" "$effort_tag" "$bar" "$ctx_used"
 
 # Line 2: cost + tokens (spaced) + lines changed + session time + git
 printf "${COST_C}\$%.4f ${DIM}in:${LG}%s ${DIM}out:${LG}%s ${DIM}lines:${G}+%s${DIM}/${R}-%s ${DIM}time:${MG}%s ${DIM}git:${DG}(%s)${RST}" \
