@@ -29,7 +29,14 @@ Exception: If the user says "just do it", "go for it", or "don't ask", skip ques
 
 ## Workflow
 
-- **Use agent teams and local agents aggressively.** When a task can be split into independent subtasks, launch multiple agents in parallel to maximize speed. Good candidates: creating independent files, running tests while coding, researching multiple areas, generating boilerplate, fixing data across files. Always prefer parallel agents over sequential work.
+- **Use TeamCreate and parallel agents aggressively.** For any task with 2+ independent subtasks, use `TeamCreate` to coordinate parallel agents. For simpler parallelism, launch multiple `Agent` tool calls in a single message. Good candidates: creating independent files, running tests while coding, researching multiple areas, generating boilerplate, fixing data across files. Always prefer parallel execution over sequential work. Never do sequentially what can be done in parallel.
+- **Cross-check with specialist agents.** After any code-writing agent finishes, ALWAYS launch `test-engineer` and `security-auditor` in parallel to verify the work. Developer agents write code; specialist agents catch their mistakes. This is non-negotiable for anything beyond trivial edits.
+- **Use the right specialist for the job.** Don't use a general developer agent when a specialist exists: `database-architect` for schema/queries, `devops-engineer` for CI/CD/Docker, `debugging-detective` for bug investigation, `refactoring-surgeon` for restructuring, `performance-optimizer` for profiling/tuning, `dependency-manager` for package management, `git-strategist` for complex git operations, `documentation-writer` for docs.
+- **Team patterns for common workflows** (see `docs/when-to-invoke-agents.md` for full details):
+  - **Every feature**: Developer → (test-engineer + security-auditor) in parallel
+  - **Every bug fix**: (debugging-detective + codebase-analyzer) → Developer → (test-engineer + security-auditor)
+  - **Every refactoring**: test-engineer (safety net) → refactoring-surgeon → (test-engineer + security-auditor + performance-optimizer)
+  - **Every PR review**: (security-auditor + test-engineer + performance-optimizer + code-review) all in parallel
 - **Ask about parallel sessions.** The user runs multiple Claude sessions simultaneously. Before starting work, ask if any part is being handled elsewhere.
 - **Don't generate large content/data.** The user generates datasets (word lists, translations, etc.) in separate dedicated sessions. Focus on code infrastructure. Ask before generating content.
 - **Research when stuck.** If you can't solve something after 2-3 attempts, research online/docs. Don't keep tweaking the same approach blindly.
