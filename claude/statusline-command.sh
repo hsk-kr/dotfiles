@@ -18,10 +18,15 @@ version=$(echo "$input" | jq -r '.version // "?"')
 exceeds_200k=$(echo "$input" | jq -r '.exceeds_200k // false')
 effort=$(jq -r '.effortLevel // "default"' ~/.claude/settings.json 2>/dev/null)
 
-# Git branch (cached to avoid slow calls)
-cache_file="/tmp/cc-statusline-git-$$"
-branch=$(git -C "$cwd" branch --no-optional-locks 2>/dev/null | sed -n 's/^\* \(.*\)/\1/p')
-[ -z "$branch" ] && branch="detached"
+# Git branch - try project_dir first, then cwd
+proj_dir=$(echo "$input" | jq -r '.workspace.project_dir // ""')
+branch=""
+for d in "$proj_dir" "$cwd"; do
+  [ -z "$d" ] && continue
+  branch=$(git -C "$d" rev-parse --abbrev-ref HEAD 2>/dev/null)
+  [ -n "$branch" ] && break
+done
+[ -z "$branch" ] || [ "$branch" = "HEAD" ] && branch="detached"
 
 # Format duration
 duration_s=$((duration_ms / 1000))
