@@ -22,7 +22,7 @@ local setup = function()
 		callback = function(args)
 			require("conform").format({
 				bufnr = args.buf,
-				lsp_fallback = true,
+				lsp_format = "fallback",
 				quiet = true,
 			})
 		end,

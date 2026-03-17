@@ -1,6 +1,6 @@
 local M = {}
 
-local telescope = require("telescope")
+local telescope
 
 local function get_recent_clipboard_content()
 	local clipboard_content = vim.fn.getreg("+")
@@ -9,6 +9,7 @@ local function get_recent_clipboard_content()
 end
 
 local function open_live_grep(path)
+	telescope = telescope or require("telescope")
 	local default_text = '"" --iglob ' .. path
 
 	telescope.extensions.live_grep_args.live_grep_args({

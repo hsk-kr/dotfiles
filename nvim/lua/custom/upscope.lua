@@ -263,7 +263,7 @@ vim.api.nvim_create_user_command("LicovimTestRunnerToggle", function()
 end, {})
 
 vim.api.nvim_create_user_command("LicovimTestRunnerClean", function()
-	M.close_output()
+	M.clear_output()
 end, {})
 
 vim.api.nvim_create_user_command("LicovimTestRunnerClose", function()
