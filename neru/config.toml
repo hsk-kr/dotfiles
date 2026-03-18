@@ -1,11 +1,13 @@
 [hotkeys]
-"Cmd+Shift+Space" = "hints --action left_click"
-"Cmd+Shift+Alt+Space" = "hints --action right_click"
+"Cmd+Shift+Space" = "hints"
+"Cmd+Shift+G" = "grid"
+"Cmd+Shift+C" = "recursive_grid"
+"Cmd+Shift+S" = "scroll"
 
 [hints]
-auto_exit_actions = ["left_click"]
+auto_exit_actions = []
 hint_characters = "asdfghjkl"
-max_depth = 30
+max_depth = 50
 parallel_threshold = 10
 include_menubar_hints = true
 additional_menubar_hints_targets = [
