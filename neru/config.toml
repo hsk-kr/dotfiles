@@ -1,5 +1,6 @@
 [hotkeys]
 "Cmd+Shift+Space" = "hints --action left_click"
+"Cmd+Shift+Alt+Space" = "hints --action right_click"
 
 [hints]
 auto_exit_actions = ["left_click"]
@@ -16,6 +17,7 @@ include_dock_hints = false
 include_nc_hints = false
 include_stage_manager_hints = false
 detect_mission_control = false
+ignore_clickable_check = true
 
 [hints.additional_ax_support]
 enable = true
