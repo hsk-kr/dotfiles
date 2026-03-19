@@ -1707,13 +1707,13 @@
             ]
           },
           {
-            "description": "Neru",
+            "description": "Homerow",
             "manipulators": [
               {
                 "from": { "key_code": "right_command" },
                 "to": [
                   {
-                    "key_code": "spacebar",
+                    "key_code": "f",
                     "modifiers": ["left_command", "left_shift"]
                   }
                 ],
@@ -1726,7 +1726,7 @@
                 },
                 "to": [
                   {
-                    "key_code": "s",
+                    "key_code": "j",
                     "modifiers": ["left_command", "left_shift"]
                   }
                 ],
